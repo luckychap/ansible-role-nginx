@@ -1,0 +1,5 @@
+---
+nginx_version: "1.16.0"
+nginx_sha1sum: "5e2fe78453ecc983247223d73ad2129509ef2564"
+nginx_extension: "tar.gz"
+nginx_download_url: "http://nginx.org/download/"
