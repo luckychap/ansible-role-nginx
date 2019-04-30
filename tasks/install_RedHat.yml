@@ -1,0 +1,29 @@
+---
+- name: "INSTALL - Create nginx group"
+  group:
+    name: "nginx"
+    system: true
+
+- name: "INSTALL - Create nginx user"
+  user:
+    name: "nginx"
+    group: "nginx"
+    system: true
+
+- name: "INSTALL - Create install destination directory"
+  file:
+    path: "{{ nginx_install_destination }}"
+    state: directory
+    owner: "nginx"
+    group: "nginx"
+
+- name: "INSTALL - Download nginx v. {{ nginx_version }}"
+  get_url:
+    url: "{{ nginx_download_url }}nginx-{{ nginx_version }}.{{ nginx_extension }}"
+    dest: "{{ nginx_install_destination }}/"
+    checksum: "sha1sum:{{ nginx_sha1sum }}"
+
+- name: "INSTALL - Unarchive downloaded contend"
+  unarchive:
+    src: "{{ nginx_install_destination }}/nginx-{{ nginx_version }}.{{ nginx_extension }}"
+    dest: "{{ nginx_install_destination }}"
