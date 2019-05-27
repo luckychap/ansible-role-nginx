@@ -8,3 +8,9 @@
   tags:
   - nginx
   - install_nginx
+
+- name: Import configure tasks
+  import_tasks: "configure_{{ ansible_distribution }}.yml"
+  tags:
+  - nginx
+  - configure_nginx

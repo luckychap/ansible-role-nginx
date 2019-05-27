@@ -1,0 +1,13 @@
+---
+- name: CONFIGURE - Make nginx configuration
+  template:
+    src: "{{ ansible_distribution }}/nginx.conf.j2"
+    dest: "{{ nginx_config_file_path }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+  - systemd enable nginx service
+  - systemd start nginx service
+
+  
