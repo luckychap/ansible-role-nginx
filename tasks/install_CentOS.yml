@@ -1,0 +1,13 @@
+---
+- name: INSTALL - Create yum repository for nginx
+  template:
+    src: "{{ ansible_distribution }}/nginx.repo.j2"
+    dest: /etc/yum.repos.d/nginx.repo
+    mode: 0644
+    owner: root
+    group: root
+
+- name: INSTALL - Make sure Nginx is installed
+  yum:
+    name: nginx
+    state: present
