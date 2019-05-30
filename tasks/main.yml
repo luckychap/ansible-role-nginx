@@ -3,14 +3,14 @@
   include_vars: "vars/{{ ansible_distribution }}.yml"
   tags: always
 
-- name: Import install tasks
-  import_tasks: "install_{{ ansible_distribution }}.yml"
+- name: Include install tasks
+  include_tasks: "install_{{ ansible_distribution }}.yml"
   tags:
   - nginx
   - install_nginx
 
-- name: Import configure tasks
-  import_tasks: "configure_{{ ansible_distribution }}.yml"
+- name: Include configure tasks
+  include_tasks: "configure_{{ ansible_distribution }}.yml"
   tags:
   - nginx
   - configure_nginx
