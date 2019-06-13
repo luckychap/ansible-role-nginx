@@ -6,8 +6,13 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: instance
+  - name: centos
     image: centos:7
+    pull: true
+    command: /usr/sbin/init
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
   name: ansible
   lint:
