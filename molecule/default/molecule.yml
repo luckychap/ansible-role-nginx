@@ -13,6 +13,8 @@ platforms:
     privileged: true
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    published_ports:
+      - 8080:80
 provisioner:
   name: ansible
   lint:
