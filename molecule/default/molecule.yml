@@ -9,12 +9,18 @@ lint:
     config-file: molecule/default/yaml-lint.yml
 platforms:
   - name: centos
+    hostname: centos-instance
     image: centos:7
+    dockerfile: Dockerfile.j2
     pull: true
+    pre_build_image: false
+    override_command: true
     command: /usr/sbin/init
     privileged: true
     volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
+    environment:
+      container: docker
     published_ports:
       - 8080:80
 provisioner:
