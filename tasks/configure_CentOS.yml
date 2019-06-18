@@ -7,7 +7,5 @@
     group: root
     mode: 0644
   notify:
-  - systemd enable nginx service
-  - systemd start nginx service
-
-  
+    - systemd enable nginx service
+    - systemd start nginx service

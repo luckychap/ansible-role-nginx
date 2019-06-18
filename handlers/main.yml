@@ -2,7 +2,7 @@
 - name: systemd enable nginx service
   systemd:
     name: nginx
-    enabled: yes
+    enabled: true
 
 - name: systemd start nginx service
   systemd:

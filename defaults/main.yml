@@ -13,4 +13,3 @@ nginx_http_default_type: text/plain
 nginx_access_log_dir: /var/log/nginx/access.log
 nginx_sendfile: "on"
 nginx_keepalive_timeout: "65"
-
